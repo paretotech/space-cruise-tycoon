@@ -9,34 +9,37 @@
 </head>
 <body>
 <header>
-  <div class="brand">SS Halcyon <span>Space Cruise Tycoon · v0.1</span></div>
+  <div class="brand">SS Halcyon<span>Space Cruise Tycoon · v0.1</span></div>
+  <div class="gauges">
+    <div class="gauge"><label>Oxygen</label><div class="num"><b id="o2v"></b><i id="o2m"></i></div><div class="bar"><i id="o2b"></i></div><div class="sub" id="o2s"></div></div>
+    <div class="gauge"><label>Food</label><div class="num"><b id="foodv"></b><i id="foodm"></i></div><div class="bar"><i id="foodb"></i></div><div class="sub" id="foods"></div></div>
+    <div class="gauge"><label>Power</label><div class="num"><b id="batv"></b><i id="batm"></i></div><div class="bar"><i id="batb"></i></div><div class="sub" id="pows"></div></div>
+  </div>
   <div class="stats">
     <div><label>Cash</label><b id="cash">$0</b></div>
     <div><label>Rating</label><b id="rep">–</b></div>
-    <div><label>Cruise</label><b id="cruise">1</b></div>
-    <div><label>Guests</label><b id="guestcount">0</b></div>
+    <div><label>Guests</label><b id="guestcount">–</b></div>
   </div>
 </header>
 
 <main>
-  <section class="shipwrap">
-    <svg id="ship" viewBox="0 0 460 600" role="img" aria-label="Cross-section of the ship"></svg>
-    <div class="shipstate" id="shipstate">Docked · Earth Port</div>
+  <section class="scene">
+    <svg id="ship" viewBox="0 0 520 640" role="img" aria-label="Cross-section of the ship"></svg>
+    <div class="shipstate" id="shipstate"></div>
   </section>
 
-  <section class="side">
+  <aside class="side">
     <div class="card route">
       <svg id="orbit" viewBox="0 0 120 120" aria-hidden="true">
         <rect x="60" y="26" width="60" height="68" class="shadow"/>
         <circle cx="60" cy="60" r="46" class="ring"/>
         <circle cx="60" cy="60" r="34" class="earth"/>
-        <circle id="shipdot" cx="14" cy="60" r="4"/>
+        <circle id="shipdot" cx="14" cy="60" r="4.5"/>
       </svg>
       <div class="routeinfo">
-        <h2>Earth Orbit Loop</h2>
-        <div class="row"><span>Orbit</span><b id="orbitn">–</b></div>
-        <div class="row"><span>Time</span><b id="clock">Docked</b></div>
-        <div class="row"><span>Light</span><b id="light">–</b></div>
+        <h2>Earth Orbit Loop · Cruise <span id="cruise">1</span></h2>
+        <div class="clock" id="clock">Docked</div>
+        <div class="row"><span id="orbitn">–</span><span id="light">–</span></div>
         <div class="speed" id="speed">
           <button data-speed="0" aria-label="Pause">II</button>
           <button data-speed="1">1×</button>
@@ -45,20 +48,14 @@
         </div>
       </div>
     </div>
-
-    <div class="card">
-      <div class="res"><div class="row"><span>Oxygen</span><b id="o2v"></b></div><div class="bar"><i id="o2b"></i></div><div class="sub" id="o2s"></div></div>
-      <div class="res"><div class="row"><span>Food</span><b id="foodv"></b></div><div class="bar"><i id="foodb"></i></div></div>
-      <div class="res"><div class="row"><span>Power</span><b id="batv"></b></div><div class="bar"><i id="batb"></i></div><div class="sub" id="pows"></div></div>
-    </div>
-
     <div class="card" id="context"></div>
     <div class="card" id="deck"></div>
     <div class="card"><h2>Log</h2><ul id="log"></ul></div>
     <button class="link" id="reset">Reset game</button>
-  </section>
+  </aside>
 </main>
 
+<div id="alert" hidden></div>
 <div id="modal" hidden></div>
 <script src="game.js"></script>
 </body>
